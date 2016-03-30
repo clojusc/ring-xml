@@ -5,11 +5,11 @@
             [clojure.zip :as zip])
   (:import [org.xml.sax SAXParseException]))
 
-(defn- xml-request?
+(defn xml-request?
   "Determine if the incoming collection represents an XML request."
   [request]
   (if-let [type (:content-type request)]
-    (not (empty? (re-find #"(application/xml)|(text/xml)" type)))))
+    (not (empty? (re-find #"(.*/xml)" type)))))
 
 (defn- ->xml [data]
   "Convert a valid collection to XML."
