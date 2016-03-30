@@ -11,14 +11,14 @@
   (if-let [type (:content-type request)]
     (not (empty? (re-find #"(application/xml)|(text/xml)" type)))))
 
-(defn- to-xml [data]
+(defn- ->xml [data]
   "Convert a valid collection to XML."
   (clojure.string/replace
     (with-out-str
       (xml/emit-element (zip/root data)))
     #"\n" ""))
 
-(defn- from-xml [request]
+(defn- ->maps [request]
   "Verifies an incoming request and consumes the body, parsing it and returning
   the result as an vector of XML elements as maps."
   (if (xml-request? request)
@@ -39,7 +39,7 @@
   key, and the :body."
   (fn [request]
     (try
-      (if-let [xml-map (from-xml request)]
+      (if-let [xml-map (->maps request)]
         (handler (-> request
                      (assoc :body xml-map)
                      (assoc :xml-params xml-map)
@@ -52,7 +52,7 @@
   (fn [request]
     (let [response (handler request)]
       (if (coll? (:body response))
-        (let [xml-response (update-in response [:body] to-xml)]
+        (let [xml-response (update-in response [:body] ->xml)]
           (if (contains? (:headers response) "Content-Type")
             xml-response
             (content-type xml-response "application/xml; charset=utf-8")))
