@@ -1,8 +1,8 @@
 (ns clojusc.ring.xml
-  (:use ring.util.response
-        [clojure.java.io :only [input-stream]])
-  (:require [clojure.xml :as xml]
-            [clojure.zip :as zip])
+  (:require [clojure.java.io :as io]
+            [clojure.xml :as xml]
+            [clojure.zip :as zip]
+            [ring.util.response :as ring])
   (:import [org.xml.sax SAXParseException]))
 
 (defn xml-request?
@@ -24,14 +24,14 @@
   (if (xml-request? request)
       (if-let [body (:body request)]
         (if-not (coll? body)
-          (zip/xml-zip (xml/parse (input-stream body)))))))
+          (zip/xml-zip (xml/parse (io/input-stream body)))))))
 
 (defn- xml-error-response [^Exception e]
   "Convert Exception into response"
   (-> (.getMessage e)
-      (response)
-      (status 400)
-      (content-type "text/plain")))
+      (ring/response)
+      (ring/status 400)
+      (ring/content-type "text/plain")))
 
 (defn wrap-xml-request [handler]
   "Intercepts incoming requests and attempts to parse the body as XML. If
@@ -55,5 +55,5 @@
         (let [xml-response (update-in response [:body] ->xml)]
           (if (contains? (:headers response) "Content-Type")
             xml-response
-            (content-type xml-response "application/xml; charset=utf-8")))
+            (ring/content-type xml-response "application/xml; charset=utf-8")))
         response))))
