@@ -17,7 +17,6 @@
                                :body [{:tag :xml :attrs nil :content nil} nil]})
           response ((wrap-xml-response handler) {})]
       (is (= (get-in response [:headers "Content-Type"]) "application/xml; charset=utf-8"))
-      (println response)
       (is (= (:body response) "<xml/>")))))
 
 (deftest test-invalid-xml-returns-400
