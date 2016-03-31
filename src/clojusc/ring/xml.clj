@@ -2,7 +2,6 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as string]
             [clojure.data.xml :as xml]
-            [clojure.zip :as zip]
             [ring.util.response :as ring])
   (:import [javax.xml.stream XMLStreamException]))
 
@@ -21,23 +20,12 @@
         body))
     nil))
 
-(defn coll->xml [data]
-  "Convert a valid collection to XML."
-  (-> data
-      (xml/emit-str)
-      (string/replace #"\n" "")))
-
-(defn sexpr->xml [data]
-  "Convert S-expression data to XML."
-  (-> data
-      (xml/sexp-as-element)
-      (xml/emit-str)))
-
 (defn ->xml [data options]
   "XML conversion dispatcher."
-  (cond
-    (:sexprs options) (sexpr->xml data)
-    :else (coll->xml data)))
+  (xml/emit-str
+    (cond
+      (:sexprs options) (xml/sexp-as-element data)
+      :else data)))
 
 (defn xml->maps [str]
   "Parses an XML string and returns a vector of XML element maps."

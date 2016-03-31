@@ -28,13 +28,13 @@
 (def request-4 {:content-type "text/plain"
                 :body "stuff"})
 
-(deftest test-coll->xml
-  (is (= str-empty-xml (ring-xml/coll->xml empty-xml)))
-  (is (= str-data-xml (ring-xml/coll->xml data-xml))))
-
-(deftest test-sexpr->xml
-  (is (= str-empty-xml (ring-xml/sexpr->xml sexpr-empty-xml)))
-  (is (= str-data-xml (ring-xml/sexpr->xml sexpr-data-xml))))
+(deftest test->xml
+  (testing "Using elements ..."
+    (is (= str-empty-xml (ring-xml/->xml empty-xml {:elements true})))
+    (is (= str-data-xml (ring-xml/->xml data-xml {:elements true}))))
+  (testing "Using S-expressions ..."
+    (is (= str-empty-xml (ring-xml/->xml sexpr-empty-xml {:sexprs true})))
+    (is (= str-data-xml (ring-xml/->xml sexpr-data-xml {:sexprs true})))))
 
 (deftest test-xml->maps
   (is (= empty-xml (ring-xml/xml->maps str-empty-xml)))
