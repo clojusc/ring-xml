@@ -18,8 +18,7 @@ Add the following to your project.clj:
 
 ## Usage
 
-The exported functionality of the library consists of only two simple
-functions.
+The functionality of the library consists of two Ring handlers:
 
 * `wrap-xml-request` checks the content-type of an incoming request and if it
   is XML then parses the body. Returns *400 Bad Request* if the XML is invalid.
