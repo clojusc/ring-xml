@@ -1,5 +1,6 @@
 (ns clojusc.ring.xml
   (:require [clojure.java.io :as io]
+            [clojure.string :as string]
             [clojure.xml :as xml]
             [clojure.zip :as zip]
             [ring.util.response :as ring])
@@ -11,20 +12,35 @@
   (if-let [type (:content-type request)]
     (not (empty? (re-find #"(.*/xml)" type)))))
 
-(defn- ->xml [data]
-  "Convert a valid collection to XML."
-  (clojure.string/replace
-    (with-out-str
-      (xml/emit-element (zip/root data)))
-    #"\n" ""))
+(defn get-xml-body
+  "Get the XML body from a request."
+  [request]
+  (if (xml-request? request)
+    (if-let [body (:body request)]
+      (if-not (coll? body)
+        body))
+    nil))
 
-(defn- ->maps [request]
+(defn ->xml [data]
+  "Convert a valid collection to XML."
+  (-> data
+      (zip/root)
+      (xml/emit-element)
+      (with-out-str)
+      (string/replace #"\n" "")))
+
+(defn ->maps [str]
+  "Parses a string as XML and returns a vector of XML elements as maps."
+  (-> str
+      (io/input-stream)
+      (xml/parse)
+      (zip/xml-zip)))
+
+(defn request->maps [request]
   "Verifies an incoming request and consumes the body, parsing it and returning
   the result as an vector of XML elements as maps."
-  (if (xml-request? request)
-      (if-let [body (:body request)]
-        (if-not (coll? body)
-          (zip/xml-zip (xml/parse (io/input-stream body)))))))
+  (if-let [body (get-xml-body request)]
+    (->maps body)))
 
 (defn- xml-error-response [^Exception e]
   "Convert Exception into response"
@@ -39,7 +55,7 @@
   key, and the :body."
   (fn [request]
     (try
-      (if-let [xml-map (->maps request)]
+      (if-let [xml-map (request->maps request)]
         (handler (-> request
                      (assoc :body xml-map)
                      (assoc :xml-params xml-map)
