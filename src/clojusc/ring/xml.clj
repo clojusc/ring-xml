@@ -30,7 +30,7 @@
       (string/replace #"\n" "")))
 
 (defn ->maps [str]
-  "Parses a string as XML and returns a vector of XML elements as maps."
+  "Parses a string as XML and returns a vector of XML element maps."
   (-> str
       (io/input-stream)
       (xml/parse)
@@ -38,7 +38,7 @@
 
 (defn request->maps [request]
   "Verifies an incoming request and consumes the body, parsing it and returning
-  the result as an vector of XML elements as maps."
+  the result as an vector of XML element maps."
   (if-let [body (get-xml-body request)]
     (->maps body)))
 
@@ -50,9 +50,10 @@
       (ring/content-type "text/plain")))
 
 (defn wrap-xml-request [handler]
-  "Intercepts incoming requests and attempts to parse the body as XML. If
-  successful, will add the resulting XML maps to the :params key, the :xml-params
-  key, and the :body."
+  "Intercepts incoming requests and attempts to parse the body as XML.
+
+  If successful, will add the resulting XML maps to the :params key, the
+  :xml-params key, and the :body."
   (fn [request]
     (try
       (if-let [xml-map (request->maps request)]
