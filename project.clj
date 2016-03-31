@@ -1,4 +1,4 @@
-(defproject clojusc/ring-xml "0.0.4"
+(defproject clojusc/ring-xml "0.0.5"
   :description "Ring middleware for XML requests and responses."
   :url "https://github.com/clojusc/ring-xml"
   :license {:name "The MIT License"
