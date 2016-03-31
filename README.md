@@ -21,10 +21,10 @@ Add the following to your project.clj:
 The functionality of the library consists of two Ring handlers:
 
 * `wrap-xml-request` checks the content-type of an incoming request and if it
-  is XML then parses the body. Returns *400 Bad Request* if the XML is invalid.
+  is XML then parses the body.
 
-* `wrap-xml-response` converts outgoing collections in the standard
-  `{:tag nil :attrs {} :content}` format to XML.
+* `wrap-xml-response` converts outgoing collections or S-expressions to
+  an XML string.
 
 
 ## License
