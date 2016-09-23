@@ -1,4 +1,4 @@
-# ring-xml [![Build Status][travis-badge]][travis][![Dependencies Status][deps-badge]][deps][![Clojars Project][clojars-badge]][clojars][![Clojure version][clojure-v]](project.clj)
+# ring-xml [![Build Status][travis-badge]][travis][![Dependencies Status][deps-badge]][deps][![Clojars Project][clojars-badge]][clojars][![Tag][tag-badge][tag]][![Clojure version][clojure-v]](project.clj)
 
 
 [Ring](https://github.com/ring-clojure) middleware functions for working with
