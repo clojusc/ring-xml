@@ -66,8 +66,12 @@
 
   :sexprs   - true if the body is expected to be in the form of vector
               S-expresions
-  :elements - true ot the body is expected to be in the form of a vector
+  :elements - true if the body is expected to be in the form of a vector
               of XML maps
+
+  For backwards-compatibility reasons the wrapper assumes that
+  clojure.data.xml elements are provided; as such the default behaviour
+  is as if the options {:elements true} are passed to this wrapper.
   "
   {:arglists '([handler] [handler options])}
   [handler & [{:as options}]]
