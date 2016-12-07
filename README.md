@@ -13,7 +13,7 @@ Inspired by and modeled after the
 Add the following to your project.clj:
 
 ```clj
-[clojsc/ring-xml "0.0.6"]
+[clojusc/ring-xml "0.1.0"]
 ```
 
 
