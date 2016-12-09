@@ -1,4 +1,4 @@
-# ring-xml 
+# ring-xml
 
 [![Build Status][travis-badge]][travis]
 [![Dependencies Status][deps-badge]][deps]
@@ -6,12 +6,14 @@
 [![Tag][tag-badge]][tag]
 [![Clojure version][clojure-v]](project.clj)
 
+*Ring middleware for XML requests and responses*
 
-[Ring](https://github.com/ring-clojure) middleware functions for working with
-[XML](https://en.wikipedia.org/wiki/XML).
 
-Inspired by and modeled after the
-[ring-json](https://github.com/ring-clojure/ring-json) middleware.
+## About
+
+`ring-xml` provides [Ring][ring] middleware functions for working with
+[XML][xml]. It was inspired by and modeled after the [ring-json][ring json]
+middleware.
 
 
 ## Installation
@@ -36,12 +38,12 @@ The functionality of the library consists of two Ring handlers:
 
 ## License
 
-```
 Copyright © 2013 IMIntel
+
 Copyright © 2016 ClojuSc
 
 Distributed under the MIT license.
-```
+
 
 <!-- Named page links below: /-->
 
@@ -56,3 +58,7 @@ Distributed under the MIT license.
 [clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
 [clojars]: https://clojars.org/clojusc/ring-xml
 [clojars-badge]: https://img.shields.io/clojars/v/clojusc/ring-xml.svg
+
+[ring]: https://github.com/ring-clojure
+[xml]: https://en.wikipedia.org/wiki/XML
+[ring json]: https://github.com/ring-clojure/ring-json
