@@ -3,7 +3,8 @@
             [clojure.string :as string]
             [clojure.data.xml :as xml]
             [ring.util.response :as ring])
-  (:import [javax.xml.stream XMLStreamException]))
+  (:import [javax.xml.stream XMLStreamException]
+           [java.io InputStream]))
 
 (defn xml-request?
   "Determine if the incoming collection represents an XML request."
@@ -16,8 +17,9 @@
   [request]
   (if (xml-request? request)
     (if-let [body (:body request)]
-      (if-not (coll? body)
-        body))
+      (cond
+       (instance? InputStream body) (slurp body)
+       (not (coll? body)) body))
     nil))
 
 (defn ->xml [data options]

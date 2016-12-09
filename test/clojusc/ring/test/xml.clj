@@ -28,6 +28,9 @@
 (def request-4 {:content-type "text/plain"
                 :body "stuff"})
 
+(def request-5 {:content-type "application/xml"
+                :body (io/string-input-stream str-data-xml)})
+
 (deftest test->xml
   (testing "Using elements ..."
     (is (= str-empty-xml (ring-xml/->xml empty-xml {:elements true})))
@@ -49,7 +52,11 @@
   (let [handler (ring-xml/wrap-xml-request identity)]
     (testing "XML Body"
       (let [response (handler request-1)]
-        (is (= empty-xml (:body response)))))))
+        (is (= empty-xml (:body response)))))
+    (testing "Streaming XML Body"
+      (let [streamed-response (handler request-5)]
+        (is (= (xml/parse-str str-data-xml)
+               (:body streamed-response)))))))
 
 (deftest test-xml-response
   (testing "No options"
