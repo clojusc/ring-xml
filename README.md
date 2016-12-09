@@ -1,4 +1,10 @@
-# ring-xml [![Build Status][travis-badge]][travis][![Dependencies Status][deps-badge]][deps][![Clojars Project][clojars-badge]][clojars][![Tag][tag-badge]][tag][![Clojure version][clojure-v]](project.clj)
+# ring-xml 
+
+[![Build Status][travis-badge]][travis]
+[![Dependencies Status][deps-badge]][deps]
+[![Clojars Project][clojars-badge]][clojars]
+[![Tag][tag-badge]][tag]
+[![Clojure version][clojure-v]](project.clj)
 
 
 [Ring](https://github.com/ring-clojure) middleware functions for working with
@@ -13,7 +19,7 @@ Inspired by and modeled after the
 Add the following to your project.clj:
 
 ```clj
-[clojusc/ring-xml "0.1.0"]
+[clojusc/ring-xml "0.1.1"]
 ```
 
 
