@@ -21,7 +21,7 @@ middleware.
 Add the following to your project.clj:
 
 ```clj
-[clojusc/ring-xml "0.1.1"]
+[clojusc/ring-xml "0.2.0-SNAPSHOT"]
 ```
 
 
