@@ -32,7 +32,7 @@
         [org.clojure/clojure "1.9.0-alpha14"]]}
     :dev {
       :source-paths ["dev-resources/src"]
-      :repl-options {:init-ns clojusc.ring.xml}
+      :repl-options {:init-ns clojusc.ring.xml.dev}
       :dependencies [
         [org.clojure/tools.namespace "0.2.11"
           :exclusions [org.clojure/clojure]]]}
