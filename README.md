@@ -8,24 +8,37 @@
 
 *Ring middleware for XML requests and responses*
 
+[![Project Logo][logo]][logo-large]
 
-## About
+
+#### Contents
+
+* [About](#about-)
+* [Documentation](#documentation-)
+* [Usage](#usage-)
+* [License](#license-)
+
+
+## About [&#x219F;](#contents)
 
 `ring-xml` provides [Ring][ring] middleware functions for working with
 [XML][xml]. It was inspired by and modeled after the [ring-json][ring json]
 middleware.
 
 
-## Installation
+## Documentation [&#x219F;](#contents)
 
-Add the following to your project.clj:
+The `ring-xml` API Reference and usage guides will be available here:
+ * [http://clojusc.github.io/ring-xml/](http://clojusc.github.io/ring-xml/)
+
+
+## Usage [&#x219F;](#contents)
+
+Include `ring-xml` in your project with the following:
 
 ```clj
 [clojusc/ring-xml "0.2.0-SNAPSHOT"]
 ```
-
-
-## Usage
 
 The functionality of the library consists of two Ring handlers:
 
@@ -35,8 +48,10 @@ The functionality of the library consists of two Ring handlers:
 * `wrap-xml-response` converts outgoing collections or S-expressions to
   an XML string.
 
+See the examples and documentation for more information.
 
-## License
+
+## License [&#x219F;](#contents)
 
 Copyright © 2013 IMIntel
 
@@ -51,8 +66,8 @@ Distributed under the MIT license.
 [travis-badge]: https://travis-ci.org/clojusc/ring-xml.png?branch=master
 [deps]: http://jarkeeper.com/clojusc/ring-xml
 [deps-badge]: http://jarkeeper.com/clojusc/ring-xml/status.svg
-[logo]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=200
-[logo-large]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=1000
+[logo]: resources/images/ring-xml-logo-x250.png
+[logo-large]: resources/images/ring-xml-logo-x1000.png
 [tag-badge]: https://img.shields.io/github/tag/clojusc/ring-xml.svg
 [tag]: https://github.com/clojusc/ring-xml/tags
 [clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
