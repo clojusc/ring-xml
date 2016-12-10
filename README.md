@@ -52,8 +52,8 @@ Distributed under the MIT license.
 [travis-badge]: https://travis-ci.org/clojusc/ring-xml.png?branch=master
 [deps]: http://jarkeeper.com/clojusc/ring-xml
 [deps-badge]: http://jarkeeper.com/clojusc/ring-xml/status.svg
-[logo]: resources/images/ring-xml-logo-250x.png
-[logo-large]: resources/images/ring-xml-logo-1000x.png
+[logo]: resources/images/ring-xml-logo-x250.png
+[logo-large]: resources/images/ring-xml-logo-x1000.png
 [tag-badge]: https://img.shields.io/github/tag/clojusc/ring-xml.svg
 [tag]: https://github.com/clojusc/ring-xml/tags
 [clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
