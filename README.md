@@ -10,23 +10,35 @@
 
 [![Project Logo][logo]][logo-large]
 
-## About
+
+#### Contents
+
+* [About](#about-)
+* [Documentation](#documentation-)
+* [Usage](#usage-)
+* [License](#license-)
+
+
+## About [&#x219F;](#contents)
 
 `ring-xml` provides [Ring][ring] middleware functions for working with
 [XML][xml]. It was inspired by and modeled after the [ring-json][ring json]
 middleware.
 
 
-## Installation
+## Documentation [&#x219F;](#contents)
 
-Add the following to your project.clj:
+The `ring-xml` API Reference and usage guides will be available here:
+ * [http://clojusc.github.io/ring-xml/](http://clojusc.github.io/ring-xml/)
+
+
+## Usage [&#x219F;](#contents)
+
+Include `ring-xml` in your project with the following:
 
 ```clj
 [clojusc/ring-xml "0.2.0-SNAPSHOT"]
 ```
-
-
-## Usage
 
 The functionality of the library consists of two Ring handlers:
 
@@ -36,8 +48,10 @@ The functionality of the library consists of two Ring handlers:
 * `wrap-xml-response` converts outgoing collections or S-expressions to
   an XML string.
 
+See the examples and documentation for more information.
 
-## License
+
+## License [&#x219F;](#contents)
 
 Copyright © 2013 IMIntel
 
