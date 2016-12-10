@@ -44,7 +44,7 @@
         :project {
           :name "ring-xml"
           :description "Ring middleware for XML requests and responses"}
-        :namespaces [#"^clojusc.ring.xml\.(?!dev)"]
+        :namespaces [#"^clojusc.ring.xml(?!\.dev)"]
         :themes [:rdash]
         :output-path "docs/master/current"
         :doc-paths ["docs/source"]
