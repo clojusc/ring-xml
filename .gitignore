@@ -3,6 +3,7 @@ pom.xml
 /lib/
 /classes/
 /targets/
+/docs/master/current/
 .lein-deps-sum
 .lein-failures
 .lein-repl-history

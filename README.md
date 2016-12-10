@@ -70,7 +70,7 @@ Distributed under the MIT license.
 [logo-large]: resources/images/ring-xml-logo-x1000.png
 [tag-badge]: https://img.shields.io/github/tag/clojusc/ring-xml.svg
 [tag]: https://github.com/clojusc/ring-xml/tags
-[clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
+[clojure-v]: https://img.shields.io/badge/clojure-1.5.0+-blue.svg
 [clojars]: https://clojars.org/clojusc/ring-xml
 [clojars-badge]: https://img.shields.io/clojars/v/clojusc/ring-xml.svg
 
