@@ -8,6 +8,7 @@
 
 *Ring middleware for XML requests and responses*
 
+[![Project Logo][logo]][logo-large]
 
 ## About
 
@@ -51,8 +52,8 @@ Distributed under the MIT license.
 [travis-badge]: https://travis-ci.org/clojusc/ring-xml.png?branch=master
 [deps]: http://jarkeeper.com/clojusc/ring-xml
 [deps-badge]: http://jarkeeper.com/clojusc/ring-xml/status.svg
-[logo]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=200
-[logo-large]: https://avatars1.githubusercontent.com/u/18177940?v=3&s=1000
+[logo]: resources/images/ring-xml-logo-250x.png
+[logo-large]: resources/images/ring-xml-logo-1000x.png
 [tag-badge]: https://img.shields.io/github/tag/clojusc/ring-xml.svg
 [tag]: https://github.com/clojusc/ring-xml/tags
 [clojure-v]: https://img.shields.io/badge/clojure-1.8.0-blue.svg
