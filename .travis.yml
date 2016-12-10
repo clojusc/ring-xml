@@ -1,1 +1,18 @@
 language: clojure
+lein: 2.7.1
+script:
+  - lein with-profile +${CLOJURE_VERSION} do compile, uberjar, test
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+  - openjdk6
+env:
+  - CLOJURE_VERSION=1.5
+  - CLOJURE_VERSION=1.6
+  - CLOJURE_VERSION=1.7
+  - CLOJURE_VERSION=1.8
+  - CLOJURE_VERSION=1.9
+notifications:
+  email:
+      - oubiwann@gmail.com
