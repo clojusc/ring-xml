@@ -1,11 +1,11 @@
 (defproject clojusc/ring-xml "0.2.0-SNAPSHOT"
-  :description "Ring middleware for XML requests and responses."
+  :description "Ring middleware for XML requests and responses"
   :url "https://github.com/clojusc/ring-xml"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/data.xml "0.1.0-beta1"]
                  [ring/ring-core "1.6.0-beta6"]]
-   :profiles {
+  :profiles {
     :uber {
       :aot :all}
     :test {
@@ -35,4 +35,19 @@
       :repl-options {:init-ns clojusc.ring.xml}
       :dependencies [
         [org.clojure/tools.namespace "0.2.11"
-          :exclusions [org.clojure/clojure]]]}})
+          :exclusions [org.clojure/clojure]]]}
+    :docs {
+      :dependencies [[codox-theme-rdash "0.1.1"]]
+      :plugins [[lein-codox "0.10.2"]
+                [lein-simpleton "1.3.0"]]
+      :codox {
+        :project {
+          :name "ring-xml"
+          :description "Ring middleware for XML requests and responses"}
+        :namespaces [#"^clojusc.ring.xml\.(?!dev)"]
+        :themes [:rdash]
+        :output-path "docs/master/current"
+        :doc-paths ["docs/source"]
+        :metadata {
+          :doc/format :markdown
+          :doc "Documentation forthcoming"}}}})
